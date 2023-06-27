@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\frontController;
-
+use App\Http\Controllers\KategoriProdukController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,12 +22,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function ()
-{
-    return view('admin/layout/adminPage/appadmin');
-});
-
+// rute front landing pages
 Route::get('/jamku',[frontController::class, 'index' ]);
+
+//rute kategori 
+Route::get('/kategori',[KategoriProdukController::class, 'index' ]);
+
+// rute prduk
+Route::get('/produk',[ProdukController::class, 'index' ]);
+
+//rute pesanan 
+Route::get('/pesanan',[PesananController::class, 'index' ]);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

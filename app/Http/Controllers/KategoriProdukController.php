@@ -13,6 +13,7 @@ class KategoriProdukController extends Controller
     public function index()
     {
         //
+        return view ('admin.kategori_produk.index');
     }
 
     /**
