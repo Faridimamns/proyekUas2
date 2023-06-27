@@ -20,6 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function ()
+{
+    return view('admin/layout/adminPage/appadmin');
+});
+
 Route::get('/jamku',[frontController::class, 'index' ]);
 Auth::routes();
 
