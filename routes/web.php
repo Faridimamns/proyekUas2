@@ -25,13 +25,18 @@ Route::get('/', function () {
 // rute front landing pages
 Route::get('/jamku',[frontController::class, 'index' ]);
 
-//rute kategori 
+//rute kategori
 Route::get('/kategori',[KategoriProdukController::class, 'index' ]);
 
 // rute prduk
 Route::get('/produk',[ProdukController::class, 'index' ]);
+Route::get('/produk/create',[ProdukController::class, 'create']);
+Route::post('/produk/store',[ProdukController::class,'store']);
+Route::get('/produk/edit/{id}',[ProdukController::class, 'edit']);
+Route::post('/produk/update/',[ProdukController::class, 'update']);
+Route::get('/produk/delete/{id}',[ProdukController::class, 'destroy']);
 
-//rute pesanan 
+//rute pesanan
 Route::get('/pesanan',[PesananController::class, 'index' ]);
 
 Auth::routes();

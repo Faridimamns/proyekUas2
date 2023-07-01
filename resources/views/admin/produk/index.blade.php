@@ -7,7 +7,7 @@
     <h1 class="h3 mb-2 text-gray-800">PRODUK</h1>
     <p class="mb-4"><a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
-    <a href="" class="btn btn-sm btn-primary">TAMBAH</a>
+    <a href="{{url('produk/create')}}" class="btn btn-sm btn-primary">TAMBAH</a>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -46,23 +46,29 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        @php $no = 1 ; @endphp
+                        @foreach ($produk as $pr)
+
+
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                            <td>d</td>
-                            <td>3</td>
-                            <td>3</td>
+                            <td>{{$no}}</td>
+                            <td>{{$pr->kode}}</td>
+                            <td>{{$pr->nama}}</td>
+                            <td>{{$pr->harga_jual}}</td>
+                            <td>{{$pr->harga_beli}}</td>
+                            <td>{{$pr->stok}}</td>
+                            <td>{{$pr->min_stok}}</td>
+                            <td>{{$pr->deskripsi}}</td>
+                            <td>{{$pr->nama_kategori}}</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-outline-primary">Edit</a>
+                                <a href="{{url('produk/edit/'.$pr->id)}}" class="btn btn-sm btn-outline-primary">Edit</a>
 
                                 <a href="" class="btn btn-sm btn-outline-danger">Hapus</a>
 
                             </td>
                         </tr>
+                        @php $no++ ; @endphp
+                        @endforeach
                     </tbody>
                 </table>
             </div>
