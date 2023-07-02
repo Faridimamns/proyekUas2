@@ -1,4 +1,4 @@
-gjhi @extends('admin.layout.adminPage.appadmin')
+@extends('admin.layout.adminPage.appadmin')
 @section('content')
 
 <div class="container-fluid">
@@ -7,7 +7,7 @@ gjhi @extends('admin.layout.adminPage.appadmin')
     <h1 class="h3 mb-2 text-gray-800">PESANAN</h1>
     <p class="mb-4"><a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
-    <a href="" class="btn btn-sm btn-primary">TAMBAH</a>
+    <a href="{{url('/pesanan/create')}}" class="btn btn-sm btn-primary">TAMBAH</a>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -46,23 +46,27 @@ gjhi @extends('admin.layout.adminPage.appadmin')
                         </tr>
                     </tfoot>
                     <tbody>
+                        @php $no = 1; @endphp
+                        @foreach($pesanan as $ps)
                         <tr>
-                            <td>1</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                            <td>s</td>
-                            <td>as</td>
-                            <td>sd</td>
+                           <td>{{$no}}</td>
+                           <td>{{$ps->tanggal}}</td>
+                           <td>{{$ps->nama_pemesan}}</td>
+                           <td>{{$ps->alamat_pemesan}}</td>
+                           <td>{{$ps->no_hp}}</td>
+                           <td>{{$ps->email}}</td>
+                           <td>{{$ps->jumlah_pesanan}}</td>
+                           <td>{{$ps->deskripsi}}</td>
+                           <td>{{$ps->produk_id}}</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-outline-primary">Edit</a>
+                                <a href="{{url('pesanan/edit/'.$ps->id)}}" class="btn btn-sm btn-outline-primary">Edit</a>
 
-                                <a href="" class="btn btn-sm btn-outline-danger">Hapus</a>
-
+                                <a href="{{url('pesanan/delete/'.$ps->id)}}" class="btn btn-sm btn-outline-danger"
+                                onclick="if(!confirm('Apakah Anda yakin ingin menghapus data pesanan?')) {return false}">Hapus</a>
                             </td>
                         </tr>
+                        @php $no++; @endphp
+                        @endforeach
                     </tbody>
                 </table>
             </div>
