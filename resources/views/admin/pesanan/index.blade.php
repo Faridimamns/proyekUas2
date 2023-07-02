@@ -1,4 +1,4 @@
-@extends('admin.layout.adminPage.appadmin')
+gjhi @extends('admin.layout.adminPage.appadmin')
 @section('content')
 
 <div class="container-fluid">
