@@ -41,15 +41,15 @@ class ProdukController extends Controller
     {
         //
         $produk = new produk;
-        $produk->kode = $request->kode;
-        $produk->nama = $request->nama;
-        $produk->harga_jual = $request->harga_jual;
-        $produk->harga_beli = $request->harga_beli;
-        $produk->stok = $request->stok;
-        $produk->min_stok = $request->min_stok;
-        $produk->deskripsi = $request->deskripsi;
-        $produk->kategori_produk_id = $request->kategori_produk_id;
-        $produk->save();
+        $produk -> kode = $request -> kode;
+        $produk -> nama = $request -> nama;
+        $produk -> harga_jual = $request -> harga_jual;
+        $produk -> harga_beli = $request -> harga_beli;
+        $produk -> stok = $request -> stok;
+        $produk -> min_stok = $request -> min_stok;
+        $produk -> deskripsi = $request -> deskripsi;
+        $produk -> kategori_produk_id = $request->kategori_produk_id;
+        $produk -> save();
         return redirect('produk');
     }
 
@@ -79,15 +79,16 @@ class ProdukController extends Controller
     public function update(Request $request)
     {
         //
+        // dd($request -> kode);
         $produk = produk::find($request->id);
-        $produk->kode = $request->kode;
-        $produk->nama = $request->nama;
-        $produk->harga_jual = $request->harga_jual;
-        $produk->harga_beli = $request->harga_beli;
-        $produk->stok = $request->stok;
-        $produk->min_stok = $request->min_stok;
-        $produk->deskripsi = $request->deskripsi;
-        $produk->kategori_produk_id = $request->kategori_produk_id;
+        $produk -> kode = $request -> kode;
+        $produk -> nama = $request -> nama;
+        $produk -> harga_jual = $request -> harga_jual;
+        $produk -> harga_beli = $request -> harga_beli;
+        $produk -> stok = $request -> stok;
+        $produk -> min_stok = $request -> min_stok;
+        $produk -> deskripsi = $request -> deskripsi;
+        $produk -> kategori_produk_id = $request -> kategori_produk_id;
         $produk->save();
         return redirect('produk');
     }

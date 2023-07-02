@@ -33,7 +33,7 @@ Route::get('/produk',[ProdukController::class, 'index' ]);
 Route::get('/produk/create',[ProdukController::class, 'create']);
 Route::post('/produk/store',[ProdukController::class,'store']);
 Route::get('/produk/edit/{id}',[ProdukController::class, 'edit']);
-Route::post('/produk/update/',[ProdukController::class, 'update']);
+Route::post('/produk/update',[ProdukController::class, 'update']);
 Route::get('/produk/delete/{id}',[ProdukController::class, 'destroy']);
 
 //rute pesanan
