@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\pesanan;
+use App\Models\Pesanan;
 use App\Models\Produk;
-//use DB
 use Illuminate\Support\Facades\DB;
-//use eluquent
 use Illuminate\Http\Request;
 
 class PesananController extends Controller
@@ -16,14 +14,12 @@ class PesananController extends Controller
      */
     public function index()
     {
-        //
         $pesanan = DB::table('pesanan')
-        ->join ('produk', 'pesanan.produk_id', '=',
-        'produk.id')
-        ->select ('pesanan.*', 'produk.nama as nama_produk')
-        ->get();
+            ->join('produk', 'pesanan.produk_id', '=', 'produk.id')
+            ->select('pesanan.*', 'produk.nama as nama_produk')
+            ->get();
 
-        return view ('admin.pesanan.index', compact('pesanan'));
+        return view('admin.pesanan.index', compact('pesanan'));
     }
 
     /**
@@ -31,10 +27,9 @@ class PesananController extends Controller
      */
     public function create()
     {
-        //
         $produk = Produk::all();
-        $pesanan = pesanan::all();
-        return view ('admin.pesanan.create', compact('produk', 'pesanan'));
+        $pesanan = Pesanan::all();
+        return view('admin.pesanan.create', compact('produk', 'pesanan'));
     }
 
     /**
@@ -42,8 +37,7 @@ class PesananController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $pesanan = new pesanan;
+        $pesanan = new Pesanan;
         $pesanan->tanggal = $request->tanggal;
         $pesanan->nama_pemesan = $request->nama_pemesan;
         $pesanan->alamat_pemesan = $request->alamat_pemesan;
@@ -61,7 +55,7 @@ class PesananController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Logic for showing a specific resource
     }
 
     /**
@@ -69,9 +63,8 @@ class PesananController extends Controller
      */
     public function edit(string $id)
     {
-        //
-        $produk = DB::table('produk')->get();
-        $pesanan = DB::table('pesanan')->where('id', $id)->get();
+        $produk = Produk::all();
+        $pesanan = Pesanan::where('id', $id)->get();
         return view('admin.pesanan.edit', compact('pesanan', 'produk'));
     }
 
@@ -80,8 +73,7 @@ class PesananController extends Controller
      */
     public function update(Request $request)
     {
-        //
-        $pesanan = pesanan::find($request->id);
+        $pesanan = Pesanan::find($request->id);
         $pesanan->tanggal = $request->tanggal;
         $pesanan->nama_pemesan = $request->nama_pemesan;
         $pesanan->alamat_pemesan = $request->alamat_pemesan;
@@ -99,7 +91,6 @@ class PesananController extends Controller
      */
     public function destroy(string $id)
     {
-        //
         DB::table('pesanan')->where('id', $id)->delete();
         return redirect('pesanan');
     }
