@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +9,9 @@ class pesanan extends Model
 {
     use HasFactory;
 
+    // panggil tabel pesanan
     protected $table = 'pesanan';
+    public $timestamps = false;
     protected $fillable = [
         'tanggal',
         'nama_pemesan',
@@ -21,15 +22,17 @@ class pesanan extends Model
         'deskripsi',
         'produk_id'
     ];
+
+    // relasi one To many ke table produk
     public function produk(){
-        return $this->belongsTo(Produk::class, 'produk_id');
+        return $this->belongsTo(produk::class);
     }
 
     public function getAllData(){
         return DB::table('pesanan')
-        ->join('produk', 'pesanan.produk_id', '=',
+        ->join('produk', 'pesanan.produk_id', '=', 
         'produk.id')
-        ->select('pesanan.*', 'produk.nama as nama')
+        ->select('pesanan.*', 'produk.nama as nama_produk')
         ->get();
     }
 }

@@ -46,27 +46,26 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @php $no = 1; @endphp
-                        @foreach($pesanan as $ps)
-                        <tr>
-                           <td>{{$no}}</td>
-                           <td>{{$ps->tanggal}}</td>
-                           <td>{{$ps->nama_pemesan}}</td>
-                           <td>{{$ps->alamat_pemesan}}</td>
-                           <td>{{$ps->no_hp}}</td>
-                           <td>{{$ps->email}}</td>
-                           <td>{{$ps->jumlah_pesanan}}</td>
-                           <td>{{$ps->deskripsi}}</td>
-                           <td>{{$ps->produk_id}}</td>
-                            <td>
-                                <a href="{{url('pesanan/edit/'.$ps->id)}}" class="btn btn-sm btn-outline-primary">Edit</a>
-
-                                <a href="{{url('pesanan/delete/'.$ps->id)}}" class="btn btn-sm btn-outline-danger"
-                                onclick="if(!confirm('Apakah Anda yakin ingin menghapus data pesanan?')) {return false}">Hapus</a>
-                            </td>
-                        </tr>
-                        @php $no++; @endphp
-                        @endforeach
+                    @php $no = 1 ; @endphp
+                                    @foreach($pesanan as $p)
+                                        <tr>
+                                            <td>{{$no}}</td>
+                                            <td>{{$p->tanggal}}</td>
+                                            <td>{{$p->nama_pemesan}}</td>
+                                            <td>{{$p->alamat_pemesan}}</td>
+                                            <td>{{$p->no_hp}}</td>
+                                            <td>{{$p->email}}</td>
+                                            <td>{{$p->jumlah_pesanan}}</td>
+                                            <td>{{$p->deskripsi}}</td>
+                                            <td>{{$p->nama_produk}}</td>
+                                            <td>
+                                                <a href="{{ url('pesanan/edit/'.$p->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                                <a href="{{ url('pesanan/delete/'.$p->id) }}" class="btn btn-sm btn-danger" 
+                                                onclick="if(!confirm('Apakah Anda yakin ingin menghapus data pesanan?')) {return false}">Hapus</a>
+                                            </td>
+                                        </tr>
+                                    @php $no++; @endphp
+                                    @endforeach
                     </tbody>
                 </table>
             </div>
