@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class pesanan extends Model
 {
@@ -30,8 +31,7 @@ class pesanan extends Model
 
     public function getAllData(){
         return DB::table('pesanan')
-        ->join('produk', 'pesanan.produk_id', '=', 
-        'produk.id')
+        ->join('produk', 'pesanan.produk_id', '=', 'produk.id')
         ->select('pesanan.*', 'produk.nama as nama_produk')
         ->get();
     }
