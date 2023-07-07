@@ -19,8 +19,6 @@ class KategoriProdukController extends Controller
         ->get();
         return view ('admin.kategori_produk.index',compact('kategori_produk'));
 
-        
-
     }
 
     /**
@@ -30,7 +28,7 @@ class KategoriProdukController extends Controller
     {
         //
         $kategori_produk = kategoriProduk::all();
-        return view('admin.kategori.create', compact('kategori_produk'));
+        return view('admin.kategori_produk.create', compact('kategori_produk'));
     }
 
     /**
@@ -40,8 +38,10 @@ class KategoriProdukController extends Controller
     {
         //
         $kategori_produk = new kategoriProduk;
-        $kategori_produk->nama = $request->nama;
+        $kategori_produk -> nama = $request -> nama;
+
         $kategori_produk->save();
+
         return redirect('kategori_produk');
     }
 
@@ -59,8 +59,8 @@ class KategoriProdukController extends Controller
     public function edit(string $id)
     {
         //
-        $kategori_produk = DB::table('kategori_produk')->get();
-        return view('admin.kategori.edit', compact('kategori_produk'));
+        $kategori_produk = DB::table('kategori_produk')->where('id', $id)->get();
+        return view('admin.kategori_produk.edit', compact('kategori_produk'));
     }
 
     /**
