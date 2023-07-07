@@ -38,16 +38,11 @@ Route::get('/produk/delete/{id}',[ProdukController::class, 'destroy']);
 
 //rute pesanan 
 Route::get('/pesanan', [PesananController::class, 'index']);
- {
-    
-    Route::get('/pesanan/create', [PesananController::class, 'create']);
-    Route::post('/pesanan/store', [PesananController::class, 'store']);
-    Route::get('/pesanan/edit/{id}', [PesananController::class, 'edit']);
-    Route::post('/pesanan/update', [PesananController::class, 'update']);
-    Route::get('/pesanan/delete/{id}', [PesananController::class, 'destroy']);
-    };
-    
->>>>>>> ika
+Route::get('/pesanan/create', [PesananController::class, 'create']);
+Route::post('/pesanan/store', [PesananController::class, 'store']);
+Route::get('/pesanan/edit/{id}', [PesananController::class, 'edit']);
+Route::post('/pesanan/update', [PesananController::class, 'update']);
+Route::get('/pesanan/delete/{id}', [PesananController::class, 'destroy']);
 
 Auth::routes();
 
