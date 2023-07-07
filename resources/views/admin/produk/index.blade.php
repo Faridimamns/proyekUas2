@@ -7,7 +7,8 @@
     <h1 class="h3 mb-2 text-gray-800">PRODUK</h1>
     <p class="mb-4"><a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
-    <a href="{{url('produk/create')}}" class="btn btn-sm btn-primary">TAMBAH</a>
+    <div class="card-header"><a href="{{url('produk/create')}}" class="btn btn-sm btn-primary">TAMBAH</a></div>
+
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -63,7 +64,7 @@
                             <td>
                                 <a href="{{url('produk/edit/'.$pr->id)}}" class="btn btn-sm btn-outline-primary">Edit</a>
 
-                                <a href="" class="btn btn-sm btn-outline-danger">Hapus</a>
+                                <a href="{{url('produk/delete/'.$pr->id)}}" class="btn btn-sm btn-outline-danger">Hapus</a>
 
                             </td>
                         </tr>
