@@ -19,14 +19,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); 
 });
 
 // rute front landing pages
 Route::get('/jamku',[frontController::class, 'index' ]);
 
 //rute kategori
-Route::get('/kategori',[KategoriProdukController::class, 'index' ]);
+Route::get('/kategori_produk',[KategoriProdukController::class, 'index' ]);
+Route::get('/kategori_produk/create',[KategoriProdukController::class, 'create']);
+Route::post('/kategori_produk/store',[KategoriProdukController::class,'store']);
+Route::get('/kategori_produk/edit/{id}',[KategoriProdukController::class, 'edit']);
+Route::post('/kategori_produk/update',[KategoriProdukController::class, 'update']);
+Route::get('/kategori_produk/delete/{id}',[KategoriProdukController::class, 'destroy']);
 
 // rute prduk
 Route::get('/produk',[ProdukController::class, 'index' ]);
@@ -47,3 +52,4 @@ Route::get('/pesanan/delete/{id}', [PesananController::class, 'destroy']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
