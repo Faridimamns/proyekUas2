@@ -17,7 +17,10 @@ class KategoriProdukController extends Controller
         //query builder
         $kategori_produk = DB::table('kategori_produk')
         ->get();
-        return view('admin.Kategori.index',compact('kategori_produk'));
+        return view ('admin.kategori_produk.index',compact('kategori_produk'));
+
+        
+
     }
 
     /**
