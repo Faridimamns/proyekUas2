@@ -36,7 +36,7 @@ class PesananController extends Controller
     public function store(Request $request)
     {
         $pesanan = new pesanan;
-        $pesanan->tanggal = $request->tanggal;
+        // $pesanan->tanggal = $request->tanggal;
         $pesanan->nama_pemesan = $request->nama_pemesan;
         $pesanan->alamat_pemesan = $request->alamat_pemesan;
         $pesanan->no_hp = $request->no_hp;
@@ -67,7 +67,7 @@ class PesananController extends Controller
     {
         //
         $pesanan = pesanan::find($request->id);
-        $pesanan->tanggal = $request->tanggal;
+        // $pesanan->tanggal = $request->tanggal;
         $pesanan->nama_pemesan = $request->nama_pemesan;
         $pesanan->alamat_pemesan = $request->alamat_pemesan;
         $pesanan->no_hp = $request->no_hp;

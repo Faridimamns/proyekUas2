@@ -10,9 +10,9 @@
     @foreach ($pesanan as $p)
   <div class="form-group row">
     <input type="hidden" name="id" value="{{$p->id}}">
-    <label for="tanggal" class="col-4 col-form-label">Tanggal</label> 
+    <!-- <label for="tanggal" class="col-4 col-form-label">Tanggal</label>  -->
     <div class="col-8">
-        <input id="tanggal" name="tanggal" type="text" class="form-control" value="{{$p->tanggal}}">
+        <input id="tanggal" name="tanggal" type="hidden" class="form-control" value="{{$p->tanggal}}">
     </div>
   </div>
   <div class="form-group row">

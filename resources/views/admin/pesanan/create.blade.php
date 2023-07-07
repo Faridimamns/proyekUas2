@@ -7,12 +7,12 @@
 <h1 class="pb-4">Tambah Data Pesanan</h1>
 <form action="{{url('pesanan/store')}}" method="POST" enctype="multipart/form-data">
     {{csrf_field()}}
-  <div class="form-group row">
+  <!-- <div class="form-group row">
     <label for="tanggal" class="col-4 col-form-label">Tanggal</label> 
     <div class="col-8">
-        <input id="tanggal" name="tanggal" type="text" class="form-control">
+        <input id="tanggal" name="tanggal" type="text" class="form-control" >
     </div>
-  </div>
+  </div> -->
   <div class="form-group row">
     <label for="nama_pemesan" class="col-4 col-form-label">Nama Pemesan</label> 
     <div class="col-8">

@@ -14,7 +14,7 @@ class pesanan extends Model
     protected $table = 'pesanan';
     public $timestamps = false;
     protected $fillable = [
-        'tanggal',
+        // 'tanggal',
         'nama_pemesan',
         'alamat_pemesan',
         'no_hp',
