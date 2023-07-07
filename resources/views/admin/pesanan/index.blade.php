@@ -7,7 +7,7 @@
     <h1 class="h3 mb-2 text-gray-800">PESANAN</h1>
     <p class="mb-4"><a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
-    <a href="" class="btn btn-sm btn-primary">TAMBAH</a>
+    <a href="{{url('/pesanan/create')}}" class="btn btn-sm btn-primary">TAMBAH</a>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -46,23 +46,26 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                            <td>s</td>
-                            <td>as</td>
-                            <td>sd</td>
-                            <td>
-                                <a href="" class="btn btn-sm btn-outline-primary">Edit</a>
-
-                                <a href="" class="btn btn-sm btn-outline-danger">Hapus</a>
-
-                            </td>
-                        </tr>
+                    @php $no = 1 ; @endphp
+                                    @foreach($pesanan as $p)
+                                        <tr>
+                                            <td>{{$no}}</td>
+                                            <td>{{$p->tanggal}}</td>
+                                            <td>{{$p->nama_pemesan}}</td>
+                                            <td>{{$p->alamat_pemesan}}</td>
+                                            <td>{{$p->no_hp}}</td>
+                                            <td>{{$p->email}}</td>
+                                            <td>{{$p->jumlah_pesanan}}</td>
+                                            <td>{{$p->deskripsi}}</td>
+                                            <td>{{$p->nama_produk}}</td>
+                                            <td>
+                                                <a href="{{ url('pesanan/edit/'.$p->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                                <a href="{{ url('pesanan/delete/'.$p->id) }}" class="btn btn-sm btn-danger" 
+                                                onclick="if(!confirm('Apakah Anda yakin ingin menghapus data pesanan?')) {return false}">Hapus</a>
+                                            </td>
+                                        </tr>
+                                    @php $no++; @endphp
+                                    @endforeach
                     </tbody>
                 </table>
             </div>
