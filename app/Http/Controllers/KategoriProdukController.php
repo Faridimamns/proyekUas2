@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\kategoriProduk;
-use illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class KategoriProdukController extends Controller
@@ -15,12 +15,9 @@ class KategoriProdukController extends Controller
     {
         //
         //query builder
-        $kategori_produk = DB::table('kategoriProduk')
-        ->join('kategori_produk', '=', 
-        'kategori_produk')
-        ->select('kategori_produk.*', 'kategori_produk.nama as nama')
+        $kategori_produk = DB::table('kategori_produk')
         ->get();
-        return view('admin.kategori.kategori_produk',compact('kategori_produk'));
+        return view('admin.Kategori.index',compact('kategori_produk'));
     }
 
     /**
@@ -39,7 +36,7 @@ class KategoriProdukController extends Controller
     public function store(Request $request)
     {
         //
-        $kategori_produk = new kategori_produk;
+        $kategori_produk = new kategoriProduk;
         $kategori_produk->nama = $request->nama;
         $kategori_produk->save();
         return redirect('kategori_produk');

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class kategoriProduk extends Model
 {
@@ -19,9 +20,6 @@ class kategoriProduk extends Model
     }
     public function getAllData(){
         return DB::table('kategori_produk')
-        ->join('kategori_produk', '=', 
-        'kategori_produk')
-        ->select('kategori_produk.*', 'kategori_produk.nama as nama')
         ->get();
     }
 }
