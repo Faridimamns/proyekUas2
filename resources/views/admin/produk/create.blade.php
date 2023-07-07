@@ -26,6 +26,12 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label for="text1" class="col-4 col-form-label">Image</label>
+                    <div class="col-8">
+                        <input id="text1" name="image" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label for="text2" class="col-4 col-form-label">Harga Jual</label>
                     <div class="col-8">
                         <input id="text2" name="harga_jual" type="text" class="form-control">

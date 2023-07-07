@@ -23,6 +23,7 @@
                             <th>NO</th>
                             <th>Kode</th>
                             <th>Nama</th>
+                            <th>image</th>
                             <th>Harga Jual</th>
                             <th>Harga Beli</th>
                             <th>Stok</th>
@@ -37,6 +38,7 @@
                             <th>NO</th>
                             <th>Kode</th>
                             <th>Nama</th>
+                            <th>image</th>
                             <th>Harga Jual</th>
                             <th>Harga Beli</th>
                             <th>Stok</th>
@@ -55,6 +57,7 @@
                             <td>{{$no}}</td>
                             <td>{{$pr->kode}}</td>
                             <td>{{$pr->nama}}</td>
+                            <td>{{$pr->image}}</td>
                             <td>{{$pr->harga_jual}}</td>
                             <td>{{$pr->harga_beli}}</td>
                             <td>{{$pr->stok}}</td>

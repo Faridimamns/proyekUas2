@@ -43,6 +43,7 @@ class ProdukController extends Controller
         $produk = new produk;
         $produk -> kode = $request -> kode;
         $produk -> nama = $request -> nama;
+        $produk -> image = $request -> image;
         $produk -> harga_jual = $request -> harga_jual;
         $produk -> harga_beli = $request -> harga_beli;
         $produk -> stok = $request -> stok;
@@ -83,6 +84,7 @@ class ProdukController extends Controller
         $produk = produk::find($request->id);
         $produk -> kode = $request -> kode;
         $produk -> nama = $request -> nama;
+        $produk -> image = $request -> image;
         $produk -> harga_jual = $request -> harga_jual;
         $produk -> harga_beli = $request -> harga_beli;
         $produk -> stok = $request -> stok;

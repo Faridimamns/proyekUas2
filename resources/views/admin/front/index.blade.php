@@ -5,10 +5,10 @@
 
 
 	<!-- start banner Area -->
-    
+
 	<section class="banner-area"  id="home">
-        
-		<div class="container"> 
+
+		<div class="container">
 			<div class="row fullscreen d-flex align-items-center justify-content-center">
 				<div class="banner-content col-lg-10">
 					<h5 class="text-white text-uppercase">Rasakan Perubahan Pada Dirimu MUlai Dari Waktumu</h5>
@@ -34,54 +34,20 @@
 				</div>
 			</div>
 			<div class="row">
+                @foreach ($produk as $pr)
 				<div class="col-lg-3 col-md-6">
 					<div class="single-unique-product">
-						<img class="img-fluid" src="img/u1.jpg" alt="">
+						<img class="img-fluid" src="{{$pr->image}}" alt="">
 						<div class="desc">
 							<h4>
-								Apple Watch White
+								{{$pr->nama}}
 							</h4>
-							<h6>Rp. 1.000.000,-</h6>
+                            <h6>Rp. {{$pr->harga_beli}}</h6>
 							<a class="text-uppercase primary-btn" href="form_pesanan.php">Pesan</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="single-unique-product">
-						<img width="165 rem" class="img-fluid" src="img/j2.jpg" alt="">
-						<div class="desc">
-							<h4>
-								Gshock Dark Blue
-							</h4>
-							<h6>Rp. 125.000,-</h6>
-							<a class="text-uppercase primary-btn" href="form_pesanan.php">Pesan</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="single-unique-product">
-						<img class="img-fluid" src="img/u3.jpg" alt="">
-						<div class="desc">
-							<h4>
-								Apple Watch Brown
-							</h4>
-							<h6>Rp. 1.200.000,-</h6>
-							<a class="text-uppercase primary-btn" href="form_pesanan.php">Pesan</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="single-unique-product">
-						<img width="165 rem" class="img-fluid" src="img/j4.jpg" alt="">
-						<div class="desc">
-							<h4>
-								Q&Q Watch Black
-							</h4>
-							<h6>Rp. 200.000,-</h6>
-							<a class="text-uppercase primary-btn" href="form_pesanan.php">Pesan</a>
-						</div>
-					</div>
-				</div>
+                @endforeach
 			</div>
 		</div>
 	</section>
@@ -104,7 +70,7 @@
 					<div class="single-service">
 						<h4><span class="lnr lnr-user"></span>Bahan Baku Terbaik</h4>
 						<p>
-							Menggunakan Bahan dan Cara pembuatan yang di teliti ketat secara berkala. 
+							Menggunakan Bahan dan Cara pembuatan yang di teliti ketat secara berkala.
 						</p>
 					</div>
 				</div>
