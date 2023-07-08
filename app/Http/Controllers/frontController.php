@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\produk;
 
 class frontController extends Controller
 {
@@ -12,7 +14,13 @@ class frontController extends Controller
     public function index()
     {
         //ini index landing pages!!
-        return view('admin.front.index');
+        $produk = DB::table('produk')
+        ->join('kategori_produk', 'produk.kategori_produk_id', '=', 'kategori_produk.id')
+        ->select('produk.*', 'kategori_produk.nama as nama_kategori')
+        ->get();
+
+        $produk = produk::take(8)->get();
+        return view('admin.front.index', compact('produk'));
     }
 
     /**
@@ -37,6 +45,7 @@ class frontController extends Controller
     public function show(string $id)
     {
         //
+
     }
 
     /**

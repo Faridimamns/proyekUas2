@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    
+
     <header style="background-color: rgba(3, 9, 36, 0.5);" id="header" id="home">
         <div class="container">
             <div class="row align-items-center justify-content-between d-flex">

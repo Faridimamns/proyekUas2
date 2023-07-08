@@ -28,6 +28,13 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="text1" class="col-4 col-form-label" value="{{ $pr->image }}">Image</label>
+                        <div class="col-8">
+                            <input id="text1" name="image" type="text" class="form-control"
+                                value="{{ $pr->image }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="text2" class="col-4 col-form-label" value="{{ $pr->harga_jual }}">Harga
                             Jual</label>
                         <div class="col-8">
