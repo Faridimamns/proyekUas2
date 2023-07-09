@@ -15,7 +15,14 @@
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Watch Me!</title>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Kang Jam</title>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!--
@@ -41,16 +48,55 @@
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li class="menu-active"><a href="index.php">Beranda</a></li>
-                        <li><a href="form_pesanan.php">Pesan</a></li>
-                        <li><a href="#unique">Produk</a></li>
-                        <li class="menu-has-children"><a href="">Admin</a>
-                            <ul>
-                                <li><a href="../watchme/backend/database.php">database</a></li>
-                            </ul>
+                        <li class="menu-active"><a href="{{ url ('/')}}">Beranda</a></li>
+                        <li><a href="{{ url('jamku/pesanan')}}">Pesan</a></li>
+
+                        @guest
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
+                        @endif
+
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                        @endif
+                        @else
+
+                        <li class="nav-item ">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a id="navbarDropdown" class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+                        </li>
+
+                        <li>
+                            <a style="height: 20px;" href="{{ url('/produk')}}" class="genric-btn primary circle arrow">Dashboard<span class="lnr lnr-arrow-right"></span></a>
+                        </li>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+
+                        @endguest
+
+
                     </ul>
                 </nav><!-- #nav-menu-container -->
+            </div>
+            <div>
+
             </div>
         </div>
     </header>

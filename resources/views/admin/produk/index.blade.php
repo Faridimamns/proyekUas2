@@ -67,7 +67,8 @@
                             <td>
                                 <a href="{{url('produk/edit/'.$pr->id)}}" class="btn btn-sm btn-outline-primary">Edit</a>
 
-                                <a href="{{url('produk/delete/'.$pr->id)}}" class="btn btn-sm btn-outline-danger">Hapus</a>
+                                <a href="{{url('produk/delete/'.$pr->id)}}" class="btn btn-sm btn-outline-danger"
+                                onclick="if(!confirm('Apakah Anda yakin ingin menghapus data produk?')) {return false}">Hapus</a>
 
                             </td>
                         </tr>

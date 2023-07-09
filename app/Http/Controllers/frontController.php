@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\produk;
@@ -15,9 +16,9 @@ class frontController extends Controller
     {
         //ini index landing pages!!
         $produk = DB::table('produk')
-        ->join('kategori_produk', 'produk.kategori_produk_id', '=', 'kategori_produk.id')
-        ->select('produk.*', 'kategori_produk.nama as nama_kategori')
-        ->get();
+            ->join('kategori_produk', 'produk.kategori_produk_id', '=', 'kategori_produk.id')
+            ->select('produk.*', 'kategori_produk.nama as nama_kategori')
+            ->get();
 
         $produk = produk::take(8)->get();
         return view('admin.front.index', compact('produk'));
@@ -28,7 +29,10 @@ class frontController extends Controller
      */
     public function create()
     {
-        //
+        //pesanan client
+        $produk = produk::all();
+        $pesanan = pesanan::all();
+        return view('admin.front.form', compact( 'produk', 'pesanan'));
     }
 
     /**
@@ -36,7 +40,19 @@ class frontController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //store pesanan client
+        $pesanan = new pesanan;
+        // $pesanan->tanggal = $request->tanggal;
+        $pesanan->nama_pemesan = $request->nama_pemesan;
+        $pesanan->alamat_pemesan = $request->alamat_pemesan;
+        $pesanan->no_hp = $request->no_hp;
+        $pesanan->email = $request->email;
+        $pesanan->jumlah_pesanan = $request->jumlah_pesanan;
+        $pesanan->deskripsi = $request->deskripsi;
+        $pesanan->produk_id = $request->produk_id;
+        $pesanan->save();
+
+        return redirect('');
     }
 
     /**

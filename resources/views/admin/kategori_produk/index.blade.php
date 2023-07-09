@@ -39,7 +39,7 @@
                             <td>{{$kp->nama}}</td>
                             <td>
                                 <a href="{{ url('kategori_produk/edit/'.$kp->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                <a href="{{ url('kategori_produk/delete/'.$kp->id) }}" class="btn btn-sm btn-danger" onclick="if(!confirm('Apakah Anda yakin ingin menghapus data pesanan?')) {return false}">Hapus</a>
+                                <a href="{{ url('kategori_produk/delete/'.$kp->id) }}" class="btn btn-sm btn-danger" onclick="if(!confirm('Apakah Anda yakin ingin menghapus data kategori?')) {return false}">Hapus</a>
                             </td>
                         </tr>
                         @php $no++; @endphp
