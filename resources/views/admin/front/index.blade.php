@@ -6,21 +6,7 @@
 
 <!-- start banner Area -->
 
-<section class="banner-area" id="home">
 
-	<div class="container">
-		<div class="row fullscreen d-flex align-items-center justify-content-center">
-			<div class="banner-content col-lg-10">
-				<h5 class="text-white text-uppercase">Rasakan Perubahan Pada Dirimu MUlai Dari Waktumu</h5>
-				<h1>
-					INGAT WAKTU INGAT TUHAN
-				</h1>
-
-				<a href="form_pesanan.php" class="primary-btn text-uppercase">Pesan Sekarang</a>
-			</div>
-		</div>
-	</div>
-</section>
 <!-- End banner Area -->
 
 <section class="unique-feature-area section-gap" id="unique">
@@ -52,7 +38,7 @@
 							{{$pr->nama}}
 						</h4>
 						<h6>Rp. {{$pr->harga_beli}}</h6>
-						<a class="text-uppercase primary-btn" href="form_pesanan.php">Pesan</a>
+						<a class="text-uppercase primary-btn" href="{{url('/jamku/pesanan')}}">Pesan</a>
 					</div>
 				</div>
 			</div>
