@@ -11,6 +11,7 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">{{ Auth::user()->name }}</div>
+
             </a>
 
 
@@ -22,6 +23,8 @@
                 Database
             </div>
 
+            <!-- HANYA ADMIN YANG BISA MENGAKSES KATEGORI DAN PRODUK -->
+            @if (Auth::user()->role == 'admin')
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ url('/kategori_produk') }}" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -36,7 +39,7 @@
                     <span>Produk</span>
                 </a>
             </li>
-
+            @endif
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -145,7 +148,9 @@
                                     {{ __('Logout') }}
                                 </a>
 
+                                @if (Auth::user()->role == 'admin')
                                 <a href="{{ url('/') }}" class="dropdown-item"><i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>Home</a>
+                                @endif
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf

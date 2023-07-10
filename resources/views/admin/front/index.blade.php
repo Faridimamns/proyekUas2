@@ -23,7 +23,7 @@
 			@foreach ($produk as $pr)
 			<div class="col-lg-3 col-md-6">
 				<div class="single-unique-product">
-							<img style="width: 10rem; height: 15rem;" class="img-fluid" src="{{$pr->image}}" alt="">
+							<img style="width: 8rem; height: 14rem;" class="img-fluid" src="{{$pr->image}}" alt="">
 
 					<!-- <div class="container-fluid h-custom" style="width: 200px; height: 200px;">
 						<div class="row d-flex justify-content-center align-items-center h-100">

@@ -36,7 +36,169 @@
     <link rel="stylesheet" href="{{ asset ('landingPage/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{ asset ('landingPage/css/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{ asset ('landingPage/css/main.css')}}">
-</head>
+
+    <style type="text/css">
+        @media print {
+            .form-section {
+                display: inline !important
+            }
+
+            .form-pagebreak {
+                display: none !important
+            }
+
+            .form-section-closed {
+                height: auto !important
+            }
+
+            .page-section {
+                position: initial !important
+            }
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?v=3.3.43241&themeRevisionID=5eb3b4ae85bd2e1e2966db96" />
+    <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/payment/payment_styles.css?3.3.43241" />
+    <link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/css/styles/payment/payment_feature.css?3.3.43241" />
+    <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/stylebuilder/donationBox.css?v=3.3.43241">
+
+    <style type="text/css" id="form-designer-style">
+        /* Injected CSS Code */
+        /*PREFERENCES STYLE*/
+        .form-all {
+            font-family: Inter, sans-serif;
+        }
+
+        .form-label.form-label-auto {
+
+            display: block;
+            float: none;
+            text-align: left;
+            width: 100%;
+
+        }
+
+        .form-line {
+            margin-top: 12px 36px 12px 36px px;
+            margin-bottom: 12px 36px 12px 36px px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .form-all {
+            max-width: 752px;
+            width: 100%;
+        }
+
+        .form-label.form-label-left,
+        .form-label.form-label-right,
+        .form-label.form-label-left.form-label-auto,
+        .form-label.form-label-right.form-label-auto {
+            width: 230px;
+        }
+
+        .form-all {
+            font-size: 16px
+        }
+
+        .supernova .form-all,
+        .form-all {
+            background-color: #fff;
+        }
+
+        .form-all {
+            color: #2C3345;
+        }
+
+        .form-header-group .form-header {
+            color: #2C3345;
+        }
+
+        .form-header-group .form-subHeader {
+            color: #2C3345;
+        }
+
+        .form-label-top,
+        .form-label-left,
+        .form-label-right,
+        .form-html,
+        .form-checkbox-item label,
+        .form-radio-item label,
+        span.FITB .qb-checkbox-label,
+        span.FITB .qb-radiobox-label,
+        span.FITB .form-radio label,
+        span.FITB .form-checkbox label,
+        [data-blotid][data-type=checkbox] [data-labelid],
+        [data-blotid][data-type=radiobox] [data-labelid],
+        span.FITB-inptCont[data-type=checkbox] label,
+        span.FITB-inptCont[data-type=radiobox] label {
+            color: #2C3345;
+        }
+
+        .form-sub-label {
+            color: #464d5f;
+        }
+
+        .supernova {
+            background-color: #ecedf3;
+        }
+
+        .supernova body {
+            background: transparent;
+        }
+
+        .form-textbox,
+        .form-textarea,
+        .form-dropdown,
+        .form-radio-other-input,
+        .form-checkbox-other-input,
+        .form-captcha input,
+        .form-spinner input {
+            background-color: #fff;
+        }
+
+        .supernova {
+            background-image: none;
+        }
+
+        #stage {
+            background-image: none;
+        }
+
+        ;
+
+        .form-all {
+            background-image: none;
+        }
+
+        .form-all {
+            position: relative;
+        }
+
+        .form-all:before {
+            content: "";
+            background-image: url("https://www.jotform.com/uploads/guest_22d8c543ea739375/form_files/logokangjam.64ab7afd212d42.39323499.png");
+            display: inline-block;
+            height: 29.78813559322034px;
+            position: absolute;
+            background-size: 190px 29px;
+            background-repeat: no-repeat;
+            width: 100%;
+        }
+
+        .form-all {
+            margin-top: 49px;
+        }
+
+        .form-all:before {
+            top: -39px;
+            left: 0;
+            background-position: top left;
+        }
+
+        /*PREFERENCES STYLE*/
+        /*__INSPECT_SEPERATOR__*/
+        /* Injected CSS Code */
+    </style>
 
 <body>
 
@@ -77,9 +239,12 @@
                             </a>
                         </li>
 
+                        <!-- selain customer bisa masuk ke dalam dashboard -->
+                        @if (Auth::user()->role != 'customer')
                         <li>
                             <a style="height: 20px;" href="{{ url('/produk')}}" class="genric-btn primary circle arrow">Dashboard<span class="lnr lnr-arrow-right"></span></a>
                         </li>
+                        @endif
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 

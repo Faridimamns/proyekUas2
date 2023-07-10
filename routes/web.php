@@ -31,7 +31,7 @@ Route::get('/jamku/pesanan',[frontController::class, 'create' ]);
 Route::post('/jamku/store',[frontController::class, 'store' ]);
 });
 
-Route::group(['middleware' => ['auth']], function(){
+Route::group(['middleware' => ['auth', 'peran:admin']], function(){
 //rute kategori
 Route::get('/kategori_produk',[KategoriProdukController::class, 'index' ]);
 Route::get('/kategori_produk/create',[KategoriProdukController::class, 'create']);
@@ -47,6 +47,13 @@ Route::post('/produk/store',[ProdukController::class,'store']);
 Route::get('/produk/edit/{id}',[ProdukController::class, 'edit']);
 Route::post('/produk/update',[ProdukController::class, 'update']);
 Route::get('/produk/delete/{id}',[ProdukController::class, 'destroy']);
+
+
+
+});
+
+
+Route::group(['middleware' => ['auth', 'peran:admin-staff']], function(){
 
 //rute pesanan 
 Route::get('/pesanan', [PesananController::class, 'index']);

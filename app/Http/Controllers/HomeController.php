@@ -23,6 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(auth()->user()->role == 'admin'){
+            return redirect('/');
+            } 
+        elseif(auth()->user()->role == 'staff'){
+            return redirect('/pesanan');
+            }
+        else{
+            return redirect('/');
+        }
     }
 }
