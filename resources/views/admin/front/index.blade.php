@@ -21,9 +21,9 @@
 		</div>
 		<div class="row">
 			@foreach ($produk as $pr)
-			<div class="col-lg-3 col-md-6">
+			<div class="col-lg-3 col-md-6" >
 				<div class="single-unique-product">
-							<img style="width: 8rem; height: 14rem;" class="img-fluid" src="{{$pr->image}}" alt="">
+					<img style="width: 8rem; height: 14rem;" class="img-fluid" src="{{$pr->image}}" alt="">
 
 					<!-- <div class="container-fluid h-custom" style="width: 200px; height: 200px;">
 						<div class="row d-flex justify-content-center align-items-center h-100">
@@ -34,10 +34,17 @@
 					</div> -->
 
 					<div class="desc">
-						<h4>
+
+						<h4  style="height: 3rem;">
 							{{$pr->nama}}
 						</h4>
+						<h5>Deskripsi</h5>
+						<p class="px-4"  style="height: 9rem;">
+							{{$pr->deskripsi}}
+						</p>
+
 						<h6>Rp. {{$pr->harga_beli}}</h6>
+
 						<a class="text-uppercase primary-btn" href="{{url('/jamku/pesanan')}}">Pesan</a>
 					</div>
 				</div>

@@ -21,6 +21,7 @@ class frontController extends Controller
             ->get();
 
         $produk = produk::take(8)->get();
+
         return view('admin.front.index', compact('produk'));
     }
 
