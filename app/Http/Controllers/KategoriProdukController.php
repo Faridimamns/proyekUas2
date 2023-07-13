@@ -14,6 +14,7 @@ class KategoriProdukController extends Controller
     public function index()
     {
         //
+        
         //query builder
         $kategori_produk = DB::table('kategori_produk')
         ->get();
